@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename = 'css/styles.css')}}
+    ">
+    <title>Calculator</title>
+</head>
+
+<body>
+    <section class="calulator">
+        <div class="cal-body">
+            <h1>BASIC CALCULATOR</h1>
+            <div class="form">
+                <form action="cal" method="post">
+                    <div class="firstnum inputs">
+                        <label for="">Enter First Number:</label>
+                        <input type="number" name="num1" id="num1">
+                    </div>
+                    <div class="secondnum inputs">
+                        <label for="">Enter Second Number:</label>
+                        <input type="number" name="num2" id="num2">
+                    </div>
+                    <div class="inputs">
+                        <label for="">Select Operator:</label>
+                        <select name="operation" id="operation">
+                            <option value=""></option>
+                            <option value="Addition">Addition</option>
+                            <option value="Subtraction">Subtraction</option>
+                            <option value="Division">Division</option>
+                            <option value="Multiplication">Multiplication</option>
+                        </select>
+                    </div>
+
+                    <div class="submit">
+                        <input type="submit" value="Solve it">
+                    </div>
+
+                    <div class="answer">
+                        <div class="answer_label">
+                            <label for="" class="answer">Answer</label>
+                        </div>
+                        <div class="answer_h2">
+                            {% for message in get_flashed_messages() %}
+                            <h2>{{message}}</h2>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
